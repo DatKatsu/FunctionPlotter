@@ -6,7 +6,7 @@ The parser and evaluator live in a separate library [ExpressionParser](https://g
 
 ## Screenshot
 
-*(screenshot here)*
+![Function Plotter screenshot](readme_functionplotter.png)
 
 ## Features
 
