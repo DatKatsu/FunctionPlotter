@@ -16,6 +16,13 @@ The parser and evaluator live in a separate library [ExpressionParser](https://g
 - Handles discontinuities like `1/x` and `tan(x)` gracefully
 - Save the functions as png
 
+## ToDo
+
+- Write unit tests for plotting logic
+- Customize individual functions by color, line-width etc.
+- Zooming and panning
+- Publish ExpressionParser to Maven Central
+
 ## How to run
 
 This project depends on my other project: [ExpressionParser](https://github.com/DatKatsu/ExpressionParser). Install it locally first:
