@@ -1,6 +1,6 @@
 # FunctionPlotter
 
-A desktop app for plotting mathematical functions and save them as images, built with Java and the Java Swing library. A refactor of my old Function Plotter that I made during my time as a Software Engineering student.
+A desktop app for plotting mathematical functions and save them as images, built with Java and the Java Swing library. A refactor of my old hobby project that I made during my time as a Software Engineering student.
 
 The parser and evaluator live in a separate library [ExpressionParser](https://github.com/DatKatsu/ExpressionParser). The plotter just passes an expression string and an x value, gets a double back, and draws it — no parsing logic lives here.
 
