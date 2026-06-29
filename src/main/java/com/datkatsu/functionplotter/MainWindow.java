@@ -36,7 +36,7 @@ public class MainWindow
         frame.setDefaultCloseOperation (WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout (new FlowLayout ());
         frame.add(framePanel);
-        frame.setResizable (false);
+        //frame.setResizable (false);
         frame.pack ();
         frame.setVisible (true);
        

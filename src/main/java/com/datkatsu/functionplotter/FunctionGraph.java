@@ -40,14 +40,10 @@ public class FunctionGraph
             variableTable.put ("x", x);
             double y = expressionProcessor.process(expression, variableTable);
             points[i] = new Point2D.Double(x, y);
+            //if(y.)
         }
     }
-    
-    public void update()
-    {
-        calculate ();
-    }
-    
+
     public Point2D.Double[] getPoints()
     {
         return points;
