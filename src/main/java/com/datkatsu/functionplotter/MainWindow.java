@@ -13,7 +13,7 @@ public class MainWindow
     private JPanel leftToolbar;
     private JPanel topToolbar;
     private JPanel bottomToolBar;
-    private ArrayList<JLabel> functionList = new ArrayList<> ();
+    private ArrayList<JLabel> functionLabels = new ArrayList<> ();
     
     public MainWindow()
     {
@@ -46,43 +46,59 @@ public class MainWindow
     {
         ImageSaverListener imageSaverListener = new ImageSaverListener("png", plotCanvas);
         JButton save = new JButton ("Save as PNG");
+        save.setPreferredSize(new Dimension(600, 30));
         save.addActionListener (imageSaverListener);
         
         topToolbar = new JPanel ();
-        topToolbar.setLayout (new GridLayout (1, 8));
+        topToolbar.setLayout (new FlowLayout (FlowLayout.CENTER));
         topToolbar.add (save);
     }
     
     private void setBottomToolbar()
     {
+
         JTextField textField = new JTextField ("2 * x");
-        JButton calculate = new JButton ("Draw");
-        calculate.addActionListener (e ->
+        textField.setPreferredSize(new Dimension(600, 30));
+        JButton draw = new JButton ("Draw");
+        draw.setPreferredSize(new Dimension(150, 30));
+        draw.addActionListener (e ->
         {
             plotCanvas.addFunction (textField.getText (), Color.blue, LineType.STRAIGHT);
+            JLabel functionText = new JLabel(textField.getText ());
+            functionLabels.add(functionText);
+            leftToolbar.add(functionText);
+            leftToolbar.revalidate();
+            leftToolbar.repaint();
             framePanel.repaint ();
         });
-        
+
         JButton clear = new JButton ("Clear");
-        clear.addActionListener (e -> plotCanvas.clear ());
+        clear.setPreferredSize(new Dimension(150, 30));
+        clear.addActionListener (e ->
+        {
+            plotCanvas.clear ();
+            functionLabels.clear();
+            leftToolbar.removeAll();
+            leftToolbar.add(new JLabel ("Functions:"));
+            leftToolbar.revalidate();
+            leftToolbar.repaint();
+            framePanel.repaint ();
+        });
     
         bottomToolBar = new JPanel ();
-        bottomToolBar.setLayout (new GridLayout (1, 3));
+        bottomToolBar.setLayout (new FlowLayout(FlowLayout.CENTER));
         bottomToolBar.add(textField);
-        bottomToolBar.add(calculate);
+        bottomToolBar.add(draw);
         bottomToolBar.add(clear);
     }
-    
+
     private void setLeftToolbar()
     {
         leftToolbar = new JPanel ();
-        leftToolbar.setLayout (new GridLayout (20, 1));
+        leftToolbar.setLayout (new BoxLayout(leftToolbar, BoxLayout.Y_AXIS));
+        leftToolbar.setPreferredSize(new Dimension(100, 900));
         leftToolbar.add(new JLabel ("Functions:"));
-        for(int i = 1; i < 20; i++)
-        {
-            functionList.add(new JLabel (""));
-            leftToolbar.add (functionList.get (i-1));
-        }
+
     }
 }
 

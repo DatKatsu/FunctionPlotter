@@ -55,7 +55,6 @@ public class PlotCanvas extends JPanel implements Saveable
         FunctionGraph graph = new FunctionGraph(s, -100, 100, 10000);
         FunctionDrawer drawer = new FunctionDrawer(graph, color);
         functionDrawers.add (drawer);
-        System.out.println("Add");
     }
     
     @Override
